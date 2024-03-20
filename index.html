@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Electronic Component Management System</title>
+    <style>
+        body {
+
+            background-color: #c8eced;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #3366cc;
+        }
+        h2 {
+            color: #333333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        input[type="submit"],
+        a {
+            display: inline-block;
+            padding: 6px 12px;
+            margin: 4px;
+            border: 1px solid #337ab7;
+            border-radius: 4px;
+            background-color: #337ab7;
+            color: #fff;
+            text-decoration: none;
+        }
+        input[type="submit"]:hover,
+        a:hover {
+            background-color: #23527c;
+            border-color: #23527c;
+            text-decoration: none;
+        }
+        form {
+            display: inline-block;
+            margin: 8px;
+        }
+    </style>
+</head>
+<body bgcolor="yellow">
+    <h1>Electronic Component Management System</h1>
+
+    <!-- Add New Component Form -->
+    <h2>Add New Component</h2>
+    <form action="{{ url_for('add_or_edit_component') }}" method="post">
+        <input type="hidden" name="component_id" value="">
+        <label for="component_name">Component Name:</label>
+        <input type="text" id="component_name" name="component_name" required><br>
+        
+        <label for="description">Component Location:</label>
+        <input type="text" id="description" name="description" required><br>
+        
+        <label for="quantity_left">Quantity Left:</label>
+        <input type="number" id="quantity_left" name="quantity_left" required><br>
+        
+        <label for="date_borrowed">Date of Previously Borrowed:</label>
+        <input type="date" id="date_borrowed" name="date_borrowed"><br>
+        
+        <label for="remarks">Remarks:</label>
+        <input type="text" id="remarks" name="remarks"><br>
+        <input type="submit" value="Add Component">
+    </form>
+
+    <!-- Components Table -->
+    <h2>Components</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Serial Number</th>
+                <th>Component Name</th>
+                <th>Component Location</th>
+                <th>Quantity Left</th>
+                <th>Date of Previously Borrowed</th>
+                <th>Remarks</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for component in components %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ component[1] }}</td>
+                <td>{{ component[2] }}</td>
+                <td>{{ component[3] }}</td>
+                <td>{{ component[4] }}</td>
+                <td>{{ component[5] }}</td>
+                <td>
+                    <form action="/edit/{{ component[0] }}" method="get">
+                        <input type="submit" value="Edit">
+                    </form>
+                </td>
+                <td><a href="/delete/{{ component[0] }}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
