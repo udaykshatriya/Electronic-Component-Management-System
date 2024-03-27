@@ -23,3 +23,6 @@ Users can view all components, add new components, edit existing components, and
 Data entered in the forms is validated on the server-side (Flask) to ensure correctness before being saved or updated in the database.
 Components are displayed in a tabular format on the main page, making it easy for users to view and manage them.
 Overall, your project provides a basic but functional Electronic Component Management System with CRUD (Create, Read, Update, Delete) operations implemented using Flask and SQLite. Users can interact with the system through a web browser to manage electronic components effectively.
+
+
+#ScreenShot of the WebApplicatiom.
