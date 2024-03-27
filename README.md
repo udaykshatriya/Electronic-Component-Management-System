@@ -25,4 +25,5 @@ Components are displayed in a tabular format on the main page, making it easy fo
 Overall, your project provides a basic but functional Electronic Component Management System with CRUD (Create, Read, Update, Delete) operations implemented using Flask and SQLite. Users can interact with the system through a web browser to manage electronic components effectively.
 
 
-#ScreenShot of the WebApplicatiom.
+# ScreenShot of the WebApplicatiom.
+![image](https://github.com/udaykshatriya/Electronic-Component-Management-System/assets/104297509/96d48ae8-b233-4875-8ba6-042e5e946288)
